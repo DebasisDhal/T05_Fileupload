@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {a
+            text-align: center;
+            color: #333333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        table th, table td {
+            padding: 12px 15px;
+            border: 1px solid #dddddd;
+        }
+
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .file-url {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .file-url a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .file-url a:hover {
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>File Upload Success</h1>
+
+    <div class="file-url">
+        <p>Your file has been successfully uploaded. You can view it <a href="{{ file_url }}">here</a>.</p>
+    </div>
+
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>ACCNO</th>
+            <th>Cust State</th>
+            <th>Cust Pin</th>
+            <th>DPD</th>
+        </tr>
+        {% for row in data.itertuples %}
+        <tr>
+            <td>{{ row.Date }}</td>
+            <td>{{ row.ACCNO }}</td>
+            <td>{{ row.Cust_State }}</td>
+            <td>{{ row.Cust_Pin }}</td>
+            <td>{{ row.DPD }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>
